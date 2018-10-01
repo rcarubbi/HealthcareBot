@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCareBot", "HealthCareBot\HealthCareBot.csproj", "{1EA19E0B-963C-450E-8DC8-07A1EC391DBE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCare.Integration", "HealthCare.Integration\HealthCare.Integration.csproj", "{0BA772DC-A34D-4826-BDCC-AC0D977183AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1EA19E0B-963C-450E-8DC8-07A1EC391DBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EA19E0B-963C-450E-8DC8-07A1EC391DBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EA19E0B-963C-450E-8DC8-07A1EC391DBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BA772DC-A34D-4826-BDCC-AC0D977183AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BA772DC-A34D-4826-BDCC-AC0D977183AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BA772DC-A34D-4826-BDCC-AC0D977183AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BA772DC-A34D-4826-BDCC-AC0D977183AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

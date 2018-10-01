@@ -1,9 +1,11 @@
 ﻿using Autofac;
+using HealthCareBot.BotOverrides.Autofac;
 using HealthCareBot.State;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.Dialogs.Internals;
 using Microsoft.Bot.Connector;
 using System.Configuration;
+using System.Reflection;
 using System.Web.Http;
 
 namespace HealthCareBot
@@ -14,12 +16,10 @@ namespace HealthCareBot
         {
             Conversation.UpdateContainer(builder =>
             {
-                var store = new SqlServerBotDataStore(ConfigurationManager.ConnectionStrings["BotDataContextConnectionString"]
-                    .ConnectionString);
-                builder.Register(c => store)
-                    .As<IBotDataStore<BotData>>()
-                    .AsSelf()
-                    .SingleInstance();
+                builder.RegisterModule(new DefaultExceptionMessageOverrideModule());
+                var resolveAssembly = Assembly.GetCallingAssembly();
+                builder.RegisterModule(new SqlBotDataStoreModule(resolveAssembly));
+
             });
 
             GlobalConfiguration.Configure(WebApiConfig.Register);
