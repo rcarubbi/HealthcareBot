@@ -4,10 +4,12 @@ using HealthCareBot.Models;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.FormFlow;
 using Microsoft.Bot.Connector;
+using System;
 using System.Threading.Tasks;
 
 namespace HealthCareBot.Dialogs
 {
+    [Serializable]
     public class BarcodeBillPaymentDialog : IDialog<object>
     {
 

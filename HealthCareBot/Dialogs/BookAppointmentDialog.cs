@@ -108,7 +108,7 @@ namespace HealthCareBot.Dialogs
             var hospitals = hospitalSearchService.SearchByDoctorName(appointmentData.DoctorName);
             if (hospitals.Count == 0)
             {
-                PromptDialog.Confirm(context, RetryAgendamento,
+                PromptDialog.Confirm(context, RetryBook,
                     "I couldn't find this Doctor in my database. Do you wanna try again?",
                     "It's not a valid option!");
 
@@ -150,10 +150,10 @@ namespace HealthCareBot.Dialogs
             await BookAppointment(context, appointmentData);
         }
 
-        private async Task RetryAgendamento(IDialogContext context, IAwaitable<bool> result)
+        private async Task RetryBook(IDialogContext context, IAwaitable<bool> result)
         {
-            var resposta = await result;
-            if (resposta)
+            var success = await result;
+            if (success)
             {
                 PromptDialog.Choice(context,
                     ResumeAfterHospitalSearchTypeSelected,
@@ -178,8 +178,16 @@ namespace HealthCareBot.Dialogs
         private async Task AfterSearchHospitals(IDialogContext context, IAwaitable<List<Hospital>> result)
         {
             var hospitals = await result;
-            context.PrivateConversationData.SetValue("hospitals", hospitals);
-            PromptDialog.Choice(context, AfterSelectHospital, hospitals.Select(h => h.Name).ToArray(), "Select a Hospital");
+            if (hospitals.Count > 0)
+            {
+                context.PrivateConversationData.SetValue("hospitals", hospitals);
+                PromptDialog.Choice(context, AfterSelectHospital, hospitals.Select(h => h.Name).ToArray(),
+                    "Select a Hospital");
+            }
+            else
+            {
+                context.Call(new SearchHospitalDialog(), AfterSearchHospitals);
+            }
         }
 
         private async Task AfterSelectHospital(IDialogContext context, IAwaitable<string> result)

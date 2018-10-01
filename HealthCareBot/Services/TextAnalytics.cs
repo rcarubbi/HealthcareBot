@@ -33,7 +33,7 @@ namespace HealthCareBot.Services
 
             var client = new SentimentClient(_subKey)
             {
-                Url = ConfigurationManager.AppSettings["TextSentimentServiceUrl"]
+                Url = ConfigurationManager.AppSettings["TextSentimentServiceUrl"] + "/sentiment"
             };
 
             var response = await client.GetSentimentAsync(request);
@@ -51,7 +51,10 @@ namespace HealthCareBot.Services
 
             request.Documents.Add(document);
 
-            var client = new LanguageClient(_subKey);
+            var client = new LanguageClient(_subKey)
+            {
+                Url = ConfigurationManager.AppSettings["TextSentimentServiceUrl"] + "/languages"
+            }; 
 
             var response = await client.GetLanguagesAsync(request);
 

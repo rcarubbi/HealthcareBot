@@ -219,7 +219,7 @@ namespace HealthCareBot.Dialogs
                         Title = "Share Location",
                         Subtitle = "Share your current location through telegram",
                         Images = new List<CardImage> { new CardImage($"{ConfigurationManager.AppSettings["BaseUrl"]}/img/Telegram.jpg") },
-                        Buttons = new List<CardAction> { new CardAction(ActionTypes.PostBack, "Share", null, "Share") }
+                        Buttons = new List<CardAction> { new CardAction(ActionTypes.PostBack, "Share", null, SHARE_LOCATION_OPTION) }
                     };
                     list.Add(card.ToAttachment());
                     break;
@@ -230,7 +230,7 @@ namespace HealthCareBot.Dialogs
                 Title = "Postcode",
                 Subtitle = "Inform the Postcode where you wanna find hospitals near",
                 Images = new List<CardImage> { new CardImage($"{ConfigurationManager.AppSettings["BaseUrl"]}/img/Postcode.jpg") },
-                Buttons = new List<CardAction> { new CardAction(ActionTypes.PostBack, "Postcode", null, "Postcode") }
+                Buttons = new List<CardAction> { new CardAction(ActionTypes.PostBack, "Postcode", null, POST_CODE_OPTION) }
             };
             list.Add(card.ToAttachment());
 

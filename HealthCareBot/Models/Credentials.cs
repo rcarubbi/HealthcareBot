@@ -12,7 +12,7 @@ namespace HealthCareBot.Models
 
 
         [Describe("Access Key")]
-        [Prompt("New inform your access key")]
+        [Prompt("Now inform your access key")]
         public string AccessKey { get; set; }
     }
 }

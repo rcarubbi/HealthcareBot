@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using Autofac;
+﻿using Autofac;
 using Microsoft.Bot.Builder.Dialogs.Internals;
 using Microsoft.Bot.Builder.Internals.Fibers;
 using Microsoft.Bot.Connector;
 using System.Configuration;
-using System.Linq;
 using System.Reflection;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters;
-using System.Runtime.Serialization.Formatters.Binary;
-using Microsoft.Bot.Builder.Azure;
-using Microsoft.Bot.Builder.Scorables.Internals;
 using Module = Autofac.Module;
 
 namespace HealthCareBot.State

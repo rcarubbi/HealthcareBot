@@ -3,6 +3,7 @@ using System;
 
 namespace HealthCareBot.Models
 {
+    [Serializable]
     public class AppointmentBookingQuery
     {
         [Prompt("tell me the name of the doctor you are looking for")]
